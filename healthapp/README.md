@@ -1,16 +1,164 @@
-# React + Vite
+HCL Healthcare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# **System Flow (Frontend Only — Healthcare Wellness & Preventive Care Portal)**
 
-Currently, two official plugins are available:
+** 1. Authentication Flow**   - Role Base Access
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. User opens Login page --> verifyOTP --> Get Role and other details
+2. Submits credentials → API returns **JWT + user role**
+3. Token stored in **localStorage**
+4. Redirect:
 
-## React Compiler
+   * **Patient → /patient/dashboard**
+   * **Provider → /provider/dashboard**
+5. Protected routes validate token before rendering
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## **2. Patient Flow**
+
+**Profile Management**
+
+* View/update basic health info 
+* Allergies, medications, personal info, consultations,lab reports,wellness
+
+
+1. Personal Information
+
+Full Name
+
+Email (usually non-editable)
+
+Phone Number
+
+Date of Birth
+
+Gender
+
+Address
+
+Profile Photo
+
+
+2. Basic Health Information
+
+Blood Group
+
+Height & Weight (BMI auto-calculated)
+
+Allergies
+
+Current Medications
+
+Chronic Conditions (e.g., diabetes, asthma)
+
+Past Surgeries / Medical History
+
+Vaccination History 
+
+Smoking/Drinking habits (optional, if privacy-sensitive)
+
+Last preventive checkup date
+
+Next due preventive screening
+
+**3. Wellness & Lifestyle Info**
+Daily step goal
+
+Sleep goal
+
+Water intake goal
+
+Dietary preferences (veg/non-veg)
+
+Activity level (sedentary/moderate/active)
+
+**4. Emergency Contact**
+
+Contact Name
+
+Relationship
+
+Phone Number
+
+Secondary backup contact (optional)
+
+
+
+
+
+**Patient Dashboard**
+
+* Fetch daily wellness goals (steps, sleep, water intake)
+* Fetch preventive care reminders
+* Show “Health Tip of the Day”
+
+**Goal Tracker**
+
+* Log steps / water intake / activities
+* Update daily goal progress
+
+---
+
+## ** 3. Healthcare Provider Flow**
+
+**Provider Dashboard**
+
+* Fetch list of assigned patients
+* View compliance status (Goal Met / Missed Checkup)
+
+**Patient Details**
+
+* View individual patient goal logs
+* View preventive care history
+* Monitor compliance trends
+
+## **🌐 4. Public Module Flow**
+
+* Public Health Information page (static content)
+* Privacy Policy page
+
+No authentication required.
+
+---
+
+## **5. Routing Flow**
+
+* **Public Routes:** `/login`, `/register`, `/health-info`, `/privacy-policy`
+* **Patient Routes:** `/patient/dashboard`, `/patient/profile`, `/patient/goals`
+* **Provider Routes:** `/provider/dashboard`, `/provider/patient/:id`
+* **ProtectedRoute** checks:
+
+  * User logged in
+  * User role matches page
+
+---
+
+## **6. Component Flow**
+
+**Shared**
+
+* Navbar
+* Sidebar
+* ProtectedRoute
+* AuthContext
+
+**UI Components**
+
+* GoalProgress
+* CardStat
+* HealthTip
+
+---
+
+## **7. Data Flow (Frontend)**
+
+1. Axios instance attaches token to every request
+2. On success → update UI
+3. On `401` → auto logout & redirect to login
+4. React Query / RTK Query manages caching
+
+---
+
+

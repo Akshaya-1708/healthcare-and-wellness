@@ -7,6 +7,7 @@ import {
 
 import ProtectedRoute from "./auth/ProtectedRoute";
 import PatientDashboard from "./components/pages/DashboardScreen/PatientDashboard";
+import DashboardReport from "./components/pages/DashboardScreen/DashboardReport";
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
           {/* // private routes */}
           <Route path="/" element={<ProtectedRoute />}>
             {" "}
-            <Route path="/dashboard" element={<PatientDashboard />} />
+            <Route path="/patient-summary" element={<PatientDashboard />} />
+                        <Route path="/patient-dashboard" element={<DashboardReport />} />
+
+
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

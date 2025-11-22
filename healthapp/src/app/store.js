@@ -3,16 +3,22 @@ import { configureStore } from '@reduxjs/toolkit'
 // Or from '@reduxjs/toolkit/query/react'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { productApi } from '../app/service/patientDashboard.js'
+import { patientApi } from './service/patientDetails.js'
 
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     [productApi.reducerPath]: productApi.reducer,
+    [patientApi.reducerPath]: patientApi.reducer,
+
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productApi.middleware),
+ middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware()
+    .concat(productApi.middleware)
+    .concat(patientApi.middleware),
+ devTools: true, // alw
 })
 
 

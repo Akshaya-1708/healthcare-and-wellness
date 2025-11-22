@@ -24,6 +24,7 @@ function App() {
                         <Route path="/patient-dashboard" element={<DashboardReport />} />
 
 
+
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

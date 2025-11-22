@@ -1,22 +1,26 @@
 // src/components/ChatbotPopup.jsx
-import React, { useState } from "react";
-import { Box, Tabs, Tab, Typography, TextField, Button, CircularProgress } from "@mui/material";
+import React, { useState, useRef, useEffect } from "react";
+import { Box, Tabs, Tab, Typography, TextField, Button } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import { GoogleGenAI } from "@google/genai";
 
-// Patient data coming via props
 export default function ChatbotPopup({ open, onClose, patientData }) {
   const [tabIndex, setTabIndex] = useState(0);
   const [chatInput, setChatInput] = useState("");
   const [messages, setMessages] = useState([
     { role: "system", content: "Hello! I am your healthcare assistant." },
   ]);
-  const [loading, setLoading] = useState(false); // loading state
+  const [loading, setLoading] = useState(false);
 
-  // Initialize Gemini client
+  const messagesEndRef = useRef(null);
+
   const ai = new GoogleGenAI({
     apiKey: import.meta.env.VITE_GEMINI_API_KEY,
   });
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const handleSendMessage = async () => {
     if (!chatInput.trim()) return;
@@ -24,7 +28,7 @@ export default function ChatbotPopup({ open, onClose, patientData }) {
     const userMessage = chatInput;
     setChatInput("");
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
-    setLoading(true); // start loading
+    setLoading(true);
 
     const fullPrompt = `
 Patient Data:
@@ -48,7 +52,7 @@ User: ${userMessage}
         { role: "bot", content: "Sorry, I'm having trouble right now." },
       ]);
     } finally {
-      setLoading(false); // stop loading
+      setLoading(false);
     }
   };
 
@@ -80,7 +84,19 @@ User: ${userMessage}
   };
 
   return (
-    <Box sx={{ height: "100%", p: 2 }}>
+    <Box
+      sx={{
+        height: "90%",
+        display: "flex",
+        flexDirection: "column",
+        p: 3,
+        borderRadius: 3,
+        background: "linear-gradient(145deg, #f5f7fa, #e0e7ff)",
+        boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+        overflowY: "auto", // <-- enable scrolling for the whole popup
+      }}
+    >
+      {/* Tabs */}
       <Tabs value={tabIndex} onChange={(e, v) => setTabIndex(v)} variant="fullWidth">
         <Tab label="Appointments" />
         <Tab label="Allergies" />
@@ -88,20 +104,32 @@ User: ${userMessage}
         <Tab label="Lab Reports" />
       </Tabs>
 
-      <Box sx={{ mt: 2, mb: 2, minHeight: "120px", overflowY: "auto" }}>
+      {/* Tab content */}
+      <Box
+        sx={{
+          mt: 2,
+          mb: 2,
+          p: 2,
+          backgroundColor: "#ffffffcc",
+          borderRadius: 2,
+        }}
+      >
         {renderTabContent()}
       </Box>
 
-      <Box sx={{ flex: 1, overflowY: "auto", mb: 2 }}>
+      {/* Messages */}
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 1, mb: 2 }}>
         {messages.map((msg, i) => (
           <Typography
             key={i}
             sx={{
-              textAlign: msg.role === "user" ? "right" : "left",
+              alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
               p: 1,
               m: 1,
-              backgroundColor: msg.role === "user" ? "#d0f0fd" : "#f1f1f1",
-              borderRadius: 1,
+              backgroundColor: msg.role === "user" ? "#c0f0fd" : "#f0f0f0",
+              borderRadius: 2,
+              maxWidth: "75%",
+              wordBreak: "break-word",
             }}
           >
             {msg.content}
@@ -111,21 +139,24 @@ User: ${userMessage}
         {loading && (
           <Typography
             sx={{
-              textAlign: "left",
+              alignSelf: "flex-start",
               p: 1,
               m: 1,
-              backgroundColor: "#f1f1f1",
-              borderRadius: 1,
+              backgroundColor: "#f0f0f0",
+              borderRadius: 2,
               fontStyle: "italic",
-              color: "#888",
+              color: "#555",
             }}
           >
-            AI is typing...
+            Healthcare Assistant is typing...
           </Typography>
         )}
+
+        <div ref={messagesEndRef} />
       </Box>
 
-      <Box sx={{ display: "flex", gap: 1 }}>
+      {/* Input */}
+      <Box sx={{ display: "flex", gap: 1, flexShrink: 0 }}>
         <TextField
           fullWidth
           size="small"
@@ -133,8 +164,17 @@ User: ${userMessage}
           value={chatInput}
           onChange={(e) => setChatInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+          sx={{
+            backgroundColor: "#fff",
+            borderRadius: 2,
+          }}
         />
-        <Button variant="contained" onClick={handleSendMessage} disabled={loading}>
+        <Button
+          variant="contained"
+          onClick={handleSendMessage}
+          disabled={loading}
+          sx={{ borderRadius: 2, backgroundColor: "#6c63ff" }}
+        >
           Send
         </Button>
       </Box>

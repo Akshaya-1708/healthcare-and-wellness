@@ -62,13 +62,52 @@ export default function PatientDashboard() {
       </Fab>
 
       {/* Chatbot Dialog */}
-  
-<Dialog open={openChat} onClose={handleCloseChat} maxWidth="sm" fullWidth>
-  <DialogTitle>Support Chat</DialogTitle>
-  <DialogContent dividers sx={{ height: "600px" }}>
-    <ChatbotPopup patientData={data} />
-  </DialogContent>
-</Dialog>
+   <Dialog
+      open={openChat}
+      onClose={handleCloseChat}
+      maxWidth="sm"
+      fullWidth
+      PaperProps={{
+        sx: {
+          borderRadius: 3,
+          boxShadow: "0 15px 35px rgba(0,0,0,0.25)",
+          background: "linear-gradient(145deg, #f0f4f8, #d9e2ff)",
+        },
+      }}
+    >
+      <DialogTitle
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          backgroundColor: "#6c63ff",
+          color: "#fff",
+          fontWeight: "bold",
+          borderTopLeftRadius: 12,
+          borderTopRightRadius: 12,
+        }}
+      >
+        Support Chat
+        <IconButton
+          onClick={handleCloseChat}
+          sx={{ color: "#fff" }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
+
+      <DialogContent
+        dividers
+        sx={{
+          height: "500px",
+          padding: 0,
+          borderRadius: 2,
+          overflow: "hidden",
+        }}
+      >
+        <ChatbotPopup patientData={data} />
+      </DialogContent>
+    </Dialog>
 
     </>
   );

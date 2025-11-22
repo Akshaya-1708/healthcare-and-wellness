@@ -1,0 +1,428 @@
+{
+  "patientId": "PT-982374",
+  "fullName": "Arun Kumar",
+  "age": 34,
+  "gender": "Male",
+  "dateOfBirth": "1991-04-18",
+  "bloodGroup": "B+",
+
+  "profile": {
+    "photoUrl": "/images/patients/arun.jpg",
+    "occupation": "Software Engineer",
+    "maritalStatus": "Married",
+    "nationality": "Indian",
+    "primaryPhysician": "Dr. Ramesh S",
+    "registrationDate": "2020-06-14"
+  },
+
+  "contact": {
+    "phone": "+91 9876543210",
+    "email": "arun.kumar@example.com",
+    "address": {
+      "line1": "23, MG Street",
+      "line2": "Near City Hospital",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "postalCode": "600017",
+      "country": "India"
+    }
+  },
+
+  "emergencyContact": {
+    "name": "Priya Arun",
+    "relation": "Wife",
+    "phone": "+91 9876001122"
+  },
+
+  "insurance": {
+    "provider": "Star Health Insurance",
+    "policyNumber": "SH-PL-2024-77392",
+    "planName": "Star Comprehensive Care",
+    "coverageType": "Full Coverage",
+    "validFrom": "2024-01-01",
+    "validTill": "2026-01-01",
+
+    "insuranceCard": {
+      "cardNumber": "INS-99883-4432",
+      "issuedOn": "2024-01-01",
+      "cardHolderName": "Arun Kumar",
+      "qrCodeUrl": "/insurance/qrcode_ins_99883.png"
+    },
+
+    "coverageDetails": {
+      "totalCoverage": 500000,
+      "usedAmount": 124000,
+      "remainingCoverage": 376000,
+      "roomRentLimit": "Up to ₹4000/day",
+      "icuCoverage": "Up to ₹8000/day",
+      "preHospitalization": "30 days",
+      "postHospitalization": "60 days",
+      "maternityCoverage": "Up to ₹50,000",
+      "ambulanceCoverage": "Up to ₹3,000 per hospitalization",
+      "coPay": "0%",
+      "deductible": 0
+    },
+
+    "benefits": [
+      "Cashless hospitalization",
+      "Free health check-up every 12 months",
+      "Pre-existing disease coverage",
+      "No room rent cap",
+      "24/7 emergency support"
+    ],
+
+    "networkHospitals": [
+      {
+        "hospitalId": "NH-101",
+        "name": "Apollo Hospital",
+        "location": "Chennai",
+        "type": "Cashless"
+      },
+      {
+        "hospitalId": "NH-102",
+        "name": "Fortis Healthcare",
+        "location": "Bangalore",
+        "type": "Cashless"
+      }
+    ],
+
+    "dependentsCovered": [
+      {
+        "name": "Priya Arun",
+        "relation": "Wife",
+        "age": 32,
+        "coverageAmount": 300000
+      },
+      {
+        "name": "Dhruv Kumar",
+        "relation": "Son",
+        "age": 5,
+        "coverageAmount": 200000
+      }
+    ],
+
+    "claimsHistory": [
+      {
+        "claimId": "CLM-2024-8872",
+        "date": "2024-12-12",
+        "hospital": "Fortis Healthcare",
+        "treatment": "Dermatology Treatment",
+        "claimedAmount": 18000,
+        "approvedAmount": 15000,
+        "status": "Approved"
+      },
+      {
+        "claimId": "CLM-2023-5521",
+        "date": "2023-06-18",
+        "hospital": "Apollo Hospital",
+        "treatment": "General Fever Treatment",
+        "claimedAmount": 9000,
+        "approvedAmount": 9000,
+        "status": "Approved"
+      }
+    ],
+
+    "documents": [
+      {
+        "docId": "INS-DOC-01",
+        "name": "Policy Document",
+        "uploadedOn": "2024-01-01",
+        "fileUrl": "/insurance/doc_policy_77392.pdf"
+      },
+      {
+        "docId": "INS-DOC-02",
+        "name": "Insurance Card",
+        "uploadedOn": "2024-01-01",
+        "fileUrl": "/insurance/card_ins_99883.pdf"
+      }
+    ]
+  },
+
+  "notifications": [
+    {
+      "id": "NTF-001",
+      "title": "Upcoming Appointment Reminder",
+      "message": "Appointment with Dr. Lakshmi on Jan 27 at 10:00 AM",
+      "date": "2025-01-25",
+      "type": "Reminder",
+      "status": "Unread"
+    },
+    {
+      "id": "NTF-002",
+      "title": "Lab Report Ready",
+      "message": "Your CBC report is available for download",
+      "date": "2025-01-12",
+      "type": "Lab",
+      "status": "Read"
+    }
+  ],
+
+  "years": {
+    "2025": {
+    "appointments": {
+  "upcoming": [
+    {
+      "id": "UP-001",
+      "date": "2025-01-27",
+      "time": "10:00 AM",
+      "doctor": "Dr. Lakshmi R",
+      "department": "Endocrinology",
+      "reason": "Diabetes Review",
+      "notes": "Patient needs follow-up lab tests",
+      "medications": [
+        {
+          "id": "MED-001",
+          "name": "Metformin",
+          "dosage": "500mg",
+          "frequency": "Twice a day",
+          "startDate": "2025-01-27",
+          "endDate": "2025-02-27",
+          "tags": ["Morning", "After Meal"],
+          "prescriptionFile": "/prescriptions/UP-001-metformin.pdf"
+        },
+        {
+          "id": "MED-002",
+          "name": "Vitamin D",
+          "dosage": "1000 IU",
+          "frequency": "Once a day",
+          "startDate": "2025-01-27",
+          "endDate": "2025-03-27",
+          "tags": ["Morning"],
+          "prescriptionFile": "/prescriptions/UP-001-vitaminD.pdf"
+        }
+      ]
+    },
+    {
+      "id": "UP-001",
+      "date": "2025-01-27",
+      "time": "10:00 AM",
+      "doctor": "Dr. Lakshmi R",
+      "department": "Endocrinology",
+      "reason": "Diabetes Review",
+      "notes": "Patient needs follow-up lab tests",
+      "medications": [
+        {
+          "id": "MED-001",
+          "name": "Metformin",
+          "dosage": "500mg",
+          "frequency": "Twice a day",
+          "startDate": "2025-01-27",
+          "endDate": "2025-02-27",
+          "tags": ["Morning", "After Meal"],
+          "prescriptionFile": "/prescriptions/UP-001-metformin.pdf"
+        },
+        {
+          "id": "MED-002",
+          "name": "Vitamin D",
+          "dosage": "1000 IU",
+          "frequency": "Once a day",
+          "startDate": "2025-01-27",
+          "endDate": "2025-03-27",
+          "tags": ["Morning"],
+          "prescriptionFile": "/prescriptions/UP-001-vitaminD.pdf"
+        }
+      ]
+    }
+  ],
+  "closed": [
+    {
+      "id": "CL-2025-01",
+      "date": "2025-01-05",
+      "doctor": "Dr. Ramesh S",
+      "department": "General Medicine",
+      "summary": "Routine check-up",
+      "notes": ""
+    }, {
+      "id": "CL-2025-01",
+      "date": "2025-01-05",
+      "doctor": "Dr. Ramesh S",
+      "department": "General Medicine",
+      "summary": "Routine check-up",
+      "notes": ""
+    }
+  ]
+}
+,
+
+      "medications": [
+        {
+          "id": 1,
+          "name": "Metformin",
+          "dosage": "500mg",
+          "frequency": "Twice a day",
+          "startDate": "2024-11-01",
+          "status": "Active"
+        }
+      ],
+
+      "allergies": ["Penicillin", "Dust", "Peanuts"],
+
+      "vaccines": [
+        {
+          "id": "VC-001",
+          "name": "Flu Vaccine",
+          "date": "2025-01-10",
+          "status": "Completed"
+        }
+      ],
+
+      "labReports": [
+        {
+          "id": "LAB-2387",
+          "testName": "CBC",
+          "date": "2025-01-10",
+          "status": "Completed",
+          "reportUrl": "/reports/cbc_2387.pdf"
+        }
+      ],
+
+      "radiologyReports": [
+        {
+          "id": "RAD-501",
+          "scanType": "Chest X-Ray",
+          "date": "2025-01-05",
+          "summary": "Normal Findings",
+          "reportUrl": "/radiology/xray_501.pdf"
+        }
+      ],
+
+      "billings": [
+        {
+          "billId": "BILL-15521",
+          "date": "2025-01-05",
+          "amount": 2300,
+          "status": "Paid",
+          "services": ["General Check-Up", "Consultation"],
+          "invoiceUrl": "/bills/bill_15521.pdf"
+        }
+      ],
+
+      "wellness": {
+        "stepsMonthly": {
+          "Jan": 6800,
+          "Feb": 7200,
+          "Mar": 6900
+        },
+        "sleepHoursAvg": 7.1,
+        "waterIntakeAvg": "2.8 L/day",
+        "caloriesBurntAvg": 450
+      },
+
+      "surgeries": []
+    },
+
+    "2024": {
+      "appointments": {
+        "closed": [
+          {
+            "id": "CL-2024-12",
+            "date": "2024-12-12",
+            "doctor": "Dr. Anitha V",
+            "department": "Dermatology",
+            "summary": "Skin allergy treatment"
+          }
+        ]
+      },
+
+      "medications": [
+        {
+          "id": 2,
+          "name": "Atorvastatin",
+          "dosage": "10mg",
+          "frequency": "Once a day",
+          "startDate": "2024-09-20",
+          "status": "Active"
+        }
+      ],
+
+      "vaccines": [
+        {
+          "id": "VC-002",
+          "name": "Covid Booster",
+          "date": "2024-10-05",
+          "status": "Completed"
+        }
+      ],
+
+      "labReports": [
+        {
+          "id": "LAB-2412",
+          "testName": "HbA1c",
+          "date": "2024-12-22",
+          "status": "Completed",
+          "reportUrl": "/reports/hba1c_2412.pdf"
+        }
+      ],
+
+      "radiologyReports": [],
+
+      "billings": [
+        {
+          "billId": "BILL-14788",
+          "date": "2024-12-12",
+          "amount": 1800,
+          "status": "Paid",
+          "services": ["Dermatology Consultation"],
+          "invoiceUrl": "/bills/bill_14788.pdf"
+        }
+      ],
+
+      "wellness": {
+        "stepsMonthly": {
+          "Sep": 6100,
+          "Oct": 6500,
+          "Nov": 7000,
+          "Dec": 6800
+        },
+        "sleepHoursAvg": 6.8,
+        "waterIntakeAvg": "2.6 L/day",
+        "caloriesBurntAvg": 380
+      },
+
+      "surgeries": []
+    }
+  },
+
+  "documents": [
+    {
+      "docId": "DOC-001",
+      "name": "Aadhaar Card",
+      "type": "ID Proof",
+      "uploadedOn": "2023-11-15",
+      "fileUrl": "/documents/aadhaar.pdf"
+    },
+    {
+      "docId": "DOC-002",
+      "name": "Insurance Policy",
+      "type": "Insurance",
+      "uploadedOn": "2024-01-01",
+      "fileUrl": "/documents/insurance_policy.pdf"
+    }
+  ],
+
+  "careTeam": [
+    {
+      "name": "Dr. Ramesh S",
+      "role": "Primary Physician",
+      "department": "General Medicine"
+    },
+    {
+      "name": "Dr. Lakshmi R",
+      "role": "Endocrinologist",
+      "department": "Endocrinology"
+    }
+  ],
+
+  "riskScores": {
+    "diabetesRisk": "Moderate",
+    "cardiacRisk": "Low",
+    "mentalHealthScore": 82
+  },
+
+  "lifestyle": {
+    "smoking": "No",
+    "alcohol": "Occasional",
+    "diet": "Vegetarian",
+    "exercise": "4 days/week"
+  }
+}

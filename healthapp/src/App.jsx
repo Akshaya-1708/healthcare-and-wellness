@@ -7,29 +7,31 @@ import {
 
 import ProtectedRoute from "./auth/ProtectedRoute";
 import PatientDashboard from "./components/pages/DashboardScreen/PatientDashboard";
-import DashboardReport from "./components/pages/DashboardScreen/DashboardReport";
+import GoalTracker from "./components/pages/GoalTracker/GoalTracker";
+import AuditLogTable from "./components/pages/AuditLogTable/AuditLogTable";
+import SideNavLayout from "./components/pages/SideNavLayout/SideNavLayout";
+import DashboardReport from "./components/pages/DashboardScreen/DashboardReport"
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          {/* //configure public */}
-          <Route path="/" element={<PatientDashboard />} />
-          
-          {/* // private routes */}
-          <Route path="/" element={<ProtectedRoute />}>
-            {" "}
+    <Router>
+      <Routes>
+        {/* everything below is protected + has sidenav */}
+        <Route element={<ProtectedRoute />}>
+          <Route element={<SideNavLayout />}>
+            {/* default route inside layout */}
+            <Route path="/" element={<PatientDashboard />} />
+            <Route path="/goalTracker" element={<GoalTracker />} />
+            <Route path="/auditLog" element={<AuditLogTable />} />
             <Route path="/patient-summary" element={<PatientDashboard />} />
-                        <Route path="/patient-dashboard" element={<DashboardReport />} />
-
-
+            <Route path="/patient-dashboard" element={<DashboardReport />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Router>
-    
-    </>
+        </Route>
+
+        {/* fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   );
 }
 
